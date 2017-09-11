@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -21,10 +22,10 @@ public class Agendamento implements Serializable {
 	@GeneratedValue
 	private long id;
 	@NotEmpty(message = "Informar contaOrigem")
-	@Pattern(regexp = "^[\\p{Alnum}]{6}$")
+	@Size(min = 6, max = 6, message = "Conta destino deve ter {1} caracteres")
 	private String contaOrigem;
 	@NotEmpty(message = "Informar contaDestino")
-	@Pattern(regexp = "^[\\p{Alnum}]{6}$")
+	@Size(min = 6, max = 6, message = "Conta destino deve ter {1} caracteres")
 	private String contaDestino;
 	@NotNull(message = "Informar valor")
 	private BigDecimal valor;
