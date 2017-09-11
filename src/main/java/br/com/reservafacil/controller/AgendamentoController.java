@@ -27,12 +27,12 @@ public class AgendamentoController {
 	
 	@Autowired
 	private AgendamentoRepository agendamentoRepository;
-	
+
 	/**
-     * GET  /agendamento : exibe todos os agendamentos.
-     *
-     * @return status 200 com a lista de Agendamento no corpo
-     */
+	 * GET  /agendamento : exibe todos os agendamentos.
+	 *
+	 * @return status 200 com a lista de Agendamento no corpo
+	 */
 	@GetMapping
 	public ResponseEntity<List<Agendamento>> listar() {
 		List<Agendamento> agendamentos = agendamentoRepository.findAll();
@@ -40,11 +40,11 @@ public class AgendamentoController {
 	}
 	
 	/**
-     * POST  /agendamento : Cria um novo agendamento.
-     *
-     * @param agendamento
-     * @return status 201 com o agendamento no corpo ou 400 se encontrar algum erro na requisição
-     */
+	 * POST  /agendamento : Cria um novo agendamento.
+	 *
+	 * @param agendamento
+	 * @return status 201 com o agendamento no corpo ou 400 se encontrar algum erro na requisição
+	 */
 	@PostMapping
 	public ResponseEntity<Agendamento> criar(@Valid @RequestBody Agendamento agendamento) {
 		agendamento.setTaxa(agendamento.getTipoTransacao().calculaTaxa(agendamento));
