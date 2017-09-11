@@ -44,19 +44,17 @@ public class AgendamentoControllerTests {
 	@MockBean
 	private AgendamentoRepository agendamentoRepository;
 	
-    private HttpMessageConverter mappingJackson2HttpMessageConverter;
-    
-    @Autowired
-    void setConverters(HttpMessageConverter<?>[] converters) {
-
-        this.mappingJackson2HttpMessageConverter = Arrays.asList(converters).stream()
-            .filter(hmc -> hmc instanceof MappingJackson2HttpMessageConverter)
-            .findAny()
-            .orElse(null);
-
-        Assert.assertNotNull("the JSON message converter must not be null",
-                this.mappingJackson2HttpMessageConverter);
-    }
+	private HttpMessageConverter mappingJackson2HttpMessageConverter;
+	
+	@Autowired
+	void setConverters(HttpMessageConverter<?>[] converters) {
+		this.mappingJackson2HttpMessageConverter = Arrays.asList(converters).stream()
+				.filter(hmc -> hmc instanceof MappingJackson2HttpMessageConverter)
+				.findAny()
+				.orElse(null);
+		Assert.assertNotNull("the JSON message converter must not be null",
+				this.mappingJackson2HttpMessageConverter);
+	}
 	
 	@Before
 	public void setup() {
@@ -135,5 +133,5 @@ public class AgendamentoControllerTests {
 		this.mappingJackson2HttpMessageConverter.write(
 				o, MediaType.APPLICATION_JSON, mockHttpOutputMessage);
 		return mockHttpOutputMessage.getBodyAsString();
-    }
+	}
 }
