@@ -1,6 +1,6 @@
 # Prova Reserva Fácil
 
-Aplicação REST utilizando Java 8, Spring Boot, Spring Data JPA, banco de dados H2 em memória e maven como ferramenta de build.
+Aplicação REST utilizando Java 8, Spring Boot, Spring Data JPA, banco de dados H2 em memória (não necessitando de instalação) e maven como ferramenta de build.
 
 Cada cálculo de taxa tem uma classe e sua utilização está ligada ao tipo.
 
